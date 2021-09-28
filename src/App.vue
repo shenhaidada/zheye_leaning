@@ -1,27 +1,55 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="container">
+    <column-list :list="list"></column-list>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import ColumnList, { ColumnProps } from './components/column-list.vue'
 
+const testData: ColumnProps[] = [
+  {
+    id: 1,
+    title: 'test1的专栏',
+    description: '这是test1的专栏非常有意思',
+    avatar:
+      'https://tse1-mm.cn.bing.net/th/id/R-C.33d0949ed1d018fbd23b9264027e58e0?rik=XYcoHb%2foHS2aFw&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20170120%2fdf204ebd7a4829933463e2989deb54c6.jpg&ehk=oIKu9Q7Dsgg8tGWfXQ%2fdcQBt4l%2f92jwsatz95dhd0oE%3d&risl=&pid=ImgRaw&r=0'
+  },
+  {
+    id: 2,
+    title: 'test2的专栏',
+    description: '这是test2的专栏非常有意思',
+    avatar:
+      'https://tse1-mm.cn.bing.net/th/id/R-C.33d0949ed1d018fbd23b9264027e58e0?rik=XYcoHb%2foHS2aFw&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20170120%2fdf204ebd7a4829933463e2989deb54c6.jpg&ehk=oIKu9Q7Dsgg8tGWfXQ%2fdcQBt4l%2f92jwsatz95dhd0oE%3d&risl=&pid=ImgRaw&r=0'
+  },
+  {
+    id: 3,
+    title: 'test3的专栏',
+    description: '这是test2的专栏非常有意思'
+    // avatar:
+    //   'https://tse1-mm.cn.bing.net/th/id/R-C.33d0949ed1d018fbd23b9264027e58e0?rik=XYcoHb%2foHS2aFw&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20170120%2fdf204ebd7a4829933463e2989deb54c6.jpg&ehk=oIKu9Q7Dsgg8tGWfXQ%2fdcQBt4l%2f92jwsatz95dhd0oE%3d&risl=&pid=ImgRaw&r=0'
+  },
+  {
+    id: 4,
+    title: 'test4的专栏',
+    description: '这是test2的专栏非常有意思',
+    avatar:
+      'https://tse1-mm.cn.bing.net/th/id/R-C.33d0949ed1d018fbd23b9264027e58e0?rik=XYcoHb%2foHS2aFw&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20170120%2fdf204ebd7a4829933463e2989deb54c6.jpg&ehk=oIKu9Q7Dsgg8tGWfXQ%2fdcQBt4l%2f92jwsatz95dhd0oE%3d&risl=&pid=ImgRaw&r=0'
+  }
+]
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    ColumnList
+  },
+  setup() {
+    return {
+      list: testData
+    }
   }
 })
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
