@@ -35,7 +35,7 @@ export default defineComponent({
       return props.list.map(
         (column: ColumnProps): ColumnProps => {
           if (!column.avatar) {
-            column.avatar = require('@/assets/logo.png')
+            column.avatar = require('@/assets/logo.png') // 引入本地文件需要用require
           }
           return column
         }
