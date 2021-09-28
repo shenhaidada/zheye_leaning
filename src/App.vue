@@ -9,7 +9,7 @@
 import { defineComponent } from 'vue'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ColumnList, { ColumnProps } from './components/column-list.vue'
-import GlobalHeader, { UserProps } from './components/GlobalHeader.vue'
+import GlobalHeader, { UserProps } from './components/global-header.vue'
 
 const currentUser: UserProps = {
   isLogin: true,
