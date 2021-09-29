@@ -9,7 +9,8 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, watch, ref } from 'vue'
+import useClickOutside from '../hooks/use-click-outside'
 export default defineComponent({
   name: 'DropDown',
   props: {
@@ -24,21 +25,14 @@ export default defineComponent({
     const toggleOpen = () => {
       isOpen.value = !isOpen.value
     }
+    const isClickOutside = useClickOutside(refDropDown) // 判断点击事件是否在组件外
 
-    const handler = (e: MouseEvent) => {
-      if (refDropDown.value) {
-        if (!refDropDown.value.contains(e.target as HTMLElement) && isOpen.value) {
-          isOpen.value = false
-        }
+    watch(isClickOutside, () => {
+      if (isOpen.value && isClickOutside.value) {
+        isOpen.value = false
       }
-    }
+    })
 
-    onMounted(() => {
-      document.addEventListener('click', handler)
-    })
-    onUnmounted(() => {
-      document.removeEventListener('click', handler)
-    })
     return {
       isOpen,
       refDropDown,
